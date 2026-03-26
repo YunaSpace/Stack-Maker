@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
     public static Action<LevelAction> OnLevelAction { get; set; }
     public static Action<LevelState> OnLevelStateChanged { get; set; }
     public static Action<int, int> OnStackNodeChanged { get; set; }
-    public static Action OnCameraForgeFocused { get; set; }
+    public static Action OnCameraForceFocused { get; set; }
 
     public LevelState LevelState;
     public int StackPoint;
@@ -141,6 +141,6 @@ public class LevelManager : MonoBehaviour
             ViewManager.OnNextLevelPanelShowed?.Invoke(false);
         }
 
-        LevelManager.OnCameraForgeFocused?.Invoke();
+        LevelManager.OnCameraForceFocused?.Invoke();
     }
 }

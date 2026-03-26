@@ -12,13 +12,13 @@ public class CameraFocus : MonoBehaviour
     private void Awake()
     {
         LevelManager.OnStackNodeChanged += OnStackNodeChanged;
-        LevelManager.OnCameraForgeFocused += OnCameraForgeFocused;
+        LevelManager.OnCameraForceFocused += OnCameraForgeFocused;
     }
 
     private void OnDestroy()
     {
         LevelManager.OnStackNodeChanged -= OnStackNodeChanged;
-        LevelManager.OnCameraForgeFocused -= OnCameraForgeFocused;
+        LevelManager.OnCameraForceFocused -= OnCameraForgeFocused;
     }
 
     private void Start()

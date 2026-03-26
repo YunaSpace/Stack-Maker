@@ -5,6 +5,11 @@ using UnityEngine.EventSystems;
 
 public class Player : MonoBehaviour
 {
+    public enum Direction
+    {
+        Left, Right, Foward, Back
+    }
+
     public class PlayerNode
     {
         public GameObject Node;

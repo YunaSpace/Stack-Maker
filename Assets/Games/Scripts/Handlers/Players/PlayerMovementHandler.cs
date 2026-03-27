@@ -26,12 +26,17 @@ public class PlayerMovementHandler : MonoBehaviour
     {
         manager = GetComponent<PlayerManager>();
         manager.OnActiveNodeChanged += UpdateModelPosition;
+
+        PlayerManager.OnPointerInputed += HandleInput;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerManager.OnPointerInputed -= HandleInput;
     }
 
     private void Update()
     {
-        HandleInput();
-
         MovePlayer();
 
         model.localRotation = Quaternion.Lerp(model.localRotation, Quaternion.Euler(modelRotation), Time.deltaTime * 10f);
@@ -48,7 +53,7 @@ public class PlayerMovementHandler : MonoBehaviour
 
         this.transform.position = new Vector3(-6.5f, 0, -2.5f);
         model.localPosition = new Vector3(0, 0.3f, 0);
-        model.localRotation = Quaternion.Euler(modelRotation = new(0, 180, 0));
+        model.localRotation = Quaternion.Euler(modelRotation = new(0, 180, 0)); 
 
         startPointPosition = Vector3.zero;
 
@@ -77,43 +82,28 @@ public class PlayerMovementHandler : MonoBehaviour
         targetPositions.Add(position);
     }
 
-    private void HandleInput()
+    private void HandleInput(Vector3 delta)
     {
-        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
-        {
-            return;
-        }
-
         if (isMoving)
         {
             return;
         }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            startPointPosition = Input.mousePosition;
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            var position = Input.mousePosition;
-            var delta = position - startPointPosition;
+        var absDeltaX = math.abs(delta.x);
+        var absDeltaY = math.abs(delta.y);
 
-            var absDeltaX = math.abs(delta.x);
-            var absDeltaY = math.abs(delta.y);
-
-            if (absDeltaX > 1 || absDeltaY > 1)
+        if (absDeltaX > 1 || absDeltaY > 1)
+        {
+            if (absDeltaX > absDeltaY)
             {
-                if (absDeltaX > absDeltaY)
-                {
-                    moveDirection = delta.x > 0 ? Vector3.right : Vector3.left;
-                }
-                else
-                {
-                    moveDirection = delta.y > 0 ? Vector3.forward : Vector3.back;
-                }
-
-                manager.OnStartDetectingNode?.Invoke(moveDirection);
+                moveDirection = delta.x > 0 ? Vector3.right : Vector3.left;
             }
+            else
+            {
+                moveDirection = delta.y > 0 ? Vector3.forward : Vector3.back;
+            }
+
+            manager.OnStartDetectingNode?.Invoke(moveDirection);
         }
     }
 

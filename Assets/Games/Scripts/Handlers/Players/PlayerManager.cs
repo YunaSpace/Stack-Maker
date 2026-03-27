@@ -7,6 +7,7 @@ public class PlayerManager : MonoBehaviour
     public static Action OnStartMoving { get; set; }
     public static Action<bool> OnNodeStacked { get; set; }
     public static Action OnNearlyWin { get; set; }
+    public static Action<Vector3> OnPointerInputed { get; set; }
 
     public Action<Vector3> OnStartDetectingNode { get; set; }
     public Action<int> OnActiveNodeChanged { get; set; }

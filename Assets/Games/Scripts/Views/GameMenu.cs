@@ -25,6 +25,16 @@ public class GameMenu : MonoBehaviour
         OnLevelChanged(0);
     }
 
+    public void StartPointPosition()
+    {
+
+    }
+
+    public void EndPointPosition()
+    {
+
+    }
+
     private void OnReplayLevel()
     {
         LevelManager.OnLevelAction?.Invoke(LevelAction.Replay);

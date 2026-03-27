@@ -15,5 +15,6 @@ public class NodeData
 public class LevelRecord : ScriptableObject
 {
     public string Name = "Level 1";
+    public int StackNodeAmount;
     public List<NodeData> Nodes = new();
 }

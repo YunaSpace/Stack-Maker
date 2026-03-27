@@ -9,6 +9,7 @@ public class ViewManager : MonoBehaviour
     [SerializeField] private WinMenu winMenu;
     [SerializeField] private LoseMenu loseMenu;
     [SerializeField] private NextMenu nextMenu;
+    [SerializeField] private GameMenu gameMenu;
 
     private void Awake()
     {

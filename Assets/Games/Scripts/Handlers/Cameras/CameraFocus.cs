@@ -7,7 +7,7 @@ public class CameraFocus : MonoBehaviour
     [SerializeField] private Vector3 minDistance;
     [SerializeField] private Vector3 maxDistance;
 
-    private Vector3 currentDistance;
+    [SerializeField] private Vector3 currentDistance;
 
     private void Awake()
     {
@@ -40,5 +40,6 @@ public class CameraFocus : MonoBehaviour
     {
         currentDistance = minDistance;
         cameraTransform.localPosition = minDistance;
+        this.transform.localPosition = new Vector3(-6.5f, 0, -2.5f);
     }
 }

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Level 4 Record
   m_EditorClassIdentifier: Assembly-CSharp::LevelRecord
   Name: Level 4
+  StackNodeAmount: 90
   Nodes:
   - Type: 2
     Position: {x: -9.5, y: 0, z: -2.5}
@@ -136,7 +137,7 @@ MonoBehaviour:
     Rotation: {x: -0, y: 0, z: 0}
   - Type: 3
     Position: {x: -4.5, y: 0, z: 0.5}
-    Rotation: {x: -0, y: 270, z: 0}
+    Rotation: {x: 0, y: 270, z: 0}
   - Type: 3
     Position: {x: -5.5, y: 0, z: 1.5}
     Rotation: {x: -0, y: 0, z: 0}
@@ -190,16 +191,16 @@ MonoBehaviour:
     Rotation: {x: -0, y: 90, z: -0}
   - Type: 3
     Position: {x: -3.5, y: 0, z: 8.5}
-    Rotation: {x: -0, y: 270, z: 0}
+    Rotation: {x: 0, y: 270, z: 0}
   - Type: 3
     Position: {x: -3.5, y: 0, z: 12.5}
-    Rotation: {x: -0, y: 180, z: -0}
+    Rotation: {x: 0, y: 180, z: 0}
   - Type: 3
     Position: {x: -5.5, y: 0, z: 12.5}
     Rotation: {x: -0, y: 90, z: -0}
   - Type: 3
     Position: {x: -5.5, y: 0, z: 10.5}
-    Rotation: {x: -0, y: 270, z: 0}
+    Rotation: {x: 0, y: 270, z: 0}
   - Type: 1
     Position: {x: -7.5, y: 0, z: 10.5}
     Rotation: {x: -0, y: 0, z: 0}
@@ -226,7 +227,7 @@ MonoBehaviour:
     Rotation: {x: -0, y: 0, z: 0}
   - Type: 3
     Position: {x: -7.5, y: 0, z: 14.5}
-    Rotation: {x: -0, y: 180, z: -0}
+    Rotation: {x: 0, y: 180, z: 0}
   - Type: 3
     Position: {x: -10.5, y: 0, z: 16.5}
     Rotation: {x: -0, y: 90, z: -0}
@@ -271,13 +272,13 @@ MonoBehaviour:
     Rotation: {x: -0, y: 0, z: 0}
   - Type: 3
     Position: {x: -3.5, y: 0, z: 14.5}
-    Rotation: {x: -0, y: 270, z: 0}
+    Rotation: {x: 0, y: 270, z: 0}
   - Type: 3
     Position: {x: -7.5, y: 0, z: 12.5}
-    Rotation: {x: -0, y: 270, z: 0}
+    Rotation: {x: 0, y: 270, z: 0}
   - Type: 3
     Position: {x: -5.5, y: 0, z: 16.5}
-    Rotation: {x: -0, y: 180, z: -0}
+    Rotation: {x: 0, y: 180, z: 0}
   - Type: 1
     Position: {x: -3.5, y: 0, z: 16.5}
     Rotation: {x: -0, y: 0, z: 0}
@@ -496,7 +497,7 @@ MonoBehaviour:
     Rotation: {x: -0, y: 90, z: -0}
   - Type: 3
     Position: {x: -7.5, y: 0, z: 37.5}
-    Rotation: {x: -0, y: 270, z: 0}
+    Rotation: {x: 0, y: 270, z: 0}
   - Type: 3
     Position: {x: -11.5, y: 0, z: 37.5}
     Rotation: {x: -0, y: 90, z: -0}
@@ -505,10 +506,10 @@ MonoBehaviour:
     Rotation: {x: -0, y: 0, z: 0}
   - Type: 3
     Position: {x: -1.5, y: 0, z: 34.5}
-    Rotation: {x: -0, y: 270, z: 0}
+    Rotation: {x: 0, y: 270, z: 0}
   - Type: 3
     Position: {x: -1.5, y: 0, z: 37.5}
-    Rotation: {x: -0, y: 180, z: -0}
+    Rotation: {x: 0, y: 180, z: 0}
   - Type: 0
     Position: {x: -7.5, y: 0, z: 40.5}
     Rotation: {x: -0, y: 0, z: 0}
@@ -1231,4 +1232,4 @@ MonoBehaviour:
     Rotation: {x: -0, y: 0, z: 0}
   - Type: 4
     Position: {x: -7.5, y: 0, z: 42.5}
-    Rotation: {x: -0, y: 270, z: 0}
+    Rotation: {x: 0, y: 270, z: 0}

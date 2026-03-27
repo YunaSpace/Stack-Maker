@@ -5,29 +5,22 @@ public class UngroundNode : StackNode
     [SerializeField] private GameObject nodePad;
     protected bool isPlaced;
 
-    public override void DetectNode(Vector3 direction, Player player)
+    public override void DetectNode(DetectData detectData)
     {
-        base.player ??= player;
-
-        if (Physics.Raycast(transform.position, direction, out RaycastHit hit, 1.2f))
+        if (DetectNextNode(detectData))
         {
-            var nextNode = hit.collider.GetComponent<StackNode>();
-            if (nextNode != null)
-            {
-                nextNode.DetectNode(direction, player);
-                return;
-            }
+            return;
         }
 
-        player.AddTargetPosition(transform.position);
-        player.StartMoving();
+        PlayerManager.OnNextPositionAdded?.Invoke(transform.position);
+        PlayerManager.OnStartMoving?.Invoke();
     }
 
     protected override void OnPlayerTriggered()
     {
         if (isPlaced == false)
         {
-            player.StackNode(false);
+            PlayerManager.OnNodeStacked?.Invoke(false);
             nodePad.SetActive(true);
         }
 

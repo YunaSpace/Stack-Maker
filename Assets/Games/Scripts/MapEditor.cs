@@ -60,6 +60,7 @@ public class MapEditor : MonoBehaviour
             nodeData.Rotation = child.transform.rotation.eulerAngles;
 
             mapRecord.Nodes.Add(nodeData);
+            mapRecord.StackNodeAmount = groundNodeAmount;
         }
 
         EditorUtility.SetDirty(mapRecord);

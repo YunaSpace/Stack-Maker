@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class GoalNode : StackNode
 {
-    public override void DetectNode(Vector3 direction, Player player)
+    public override void DetectNode(DetectData detectData)
     {
-        player.IsNearlyWin = true;
+        PlayerManager.OnNearlyWin?.Invoke();
 
-        player.AddTargetPosition(transform.position);
-        player.StartMoving();
+        PlayerManager.OnNextPositionAdded?.Invoke(transform.position);
+        PlayerManager.OnStartMoving?.Invoke();
     }
 }

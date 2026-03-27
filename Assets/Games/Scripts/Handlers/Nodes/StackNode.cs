@@ -2,27 +2,36 @@ using UnityEngine;
 
 public abstract class StackNode : MonoBehaviour
 {
-    protected Player player;
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (player == null)
-            {
-                player = other.GetComponent<Player>();
-            }
-
             OnPlayerTriggered();
         }
     }
 
-    public virtual void DetectNode(Vector3 direction, Player player)
+    public virtual void DetectNode(DetectData detectData)
     {
     }
 
     protected virtual void OnPlayerTriggered()
     {
 
+    }
+
+    protected bool DetectNextNode(DetectData detectData)
+    {
+        if (Physics.Raycast(transform.position, detectData.Direction, out RaycastHit hit, 1.2f))
+        {
+            var nextNode = hit.collider.GetComponent<StackNode>();
+            
+            if (nextNode != null)
+            {
+                nextNode.DetectNode(detectData);
+                return true;
+            }
+        }
+
+        return false;
     }
 }

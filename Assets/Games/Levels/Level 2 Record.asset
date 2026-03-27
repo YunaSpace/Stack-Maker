@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Level 2 Record
   m_EditorClassIdentifier: Assembly-CSharp::LevelRecord
   Name: Level 2
+  StackNodeAmount: 73
   Nodes:
   - Type: 2
     Position: {x: -7.5, y: 0, z: -2.5}
@@ -550,7 +551,7 @@ MonoBehaviour:
     Rotation: {x: -0, y: 90, z: -0}
   - Type: 3
     Position: {x: 52.5, y: 0, z: 3.5}
-    Rotation: {x: -0, y: 270, z: 0}
+    Rotation: {x: 0, y: 270, z: 0}
   - Type: 2
     Position: {x: 0.5, y: 0, z: 6.5}
     Rotation: {x: -0, y: 0, z: 0}
@@ -1213,7 +1214,7 @@ MonoBehaviour:
     Rotation: {x: -0, y: 0, z: 0}
   - Type: 3
     Position: {x: 20.5, y: 0, z: 1.5}
-    Rotation: {x: -0, y: 270, z: 0}
+    Rotation: {x: 0, y: 270, z: 0}
   - Type: 3
     Position: {x: 16.5, y: 0, z: 7.5}
     Rotation: {x: -0, y: 90, z: -0}
@@ -1228,4 +1229,4 @@ MonoBehaviour:
     Rotation: {x: -0, y: 0, z: 0}
   - Type: 4
     Position: {x: 53.5, y: 0, z: 23.5}
-    Rotation: {x: -0, y: 270, z: 0}
+    Rotation: {x: 0, y: 270, z: 0}

@@ -8,28 +8,29 @@ public enum LevelState { Play, Pause, Win, Lose }
 
 public class LevelManager : MonoBehaviour
 {
+    public static Action<int> OnLevelChanged { get; set; }
     public static Action<LevelAction> OnLevelAction { get; set; }
     public static Action<LevelState> OnLevelStateChanged { get; set; }
     public static Action<int, int> OnStackNodeChanged { get; set; }
     public static Action OnCameraForceFocused { get; set; }
 
+    public int StackNodeAmount => levelRecords[currentLevel].StackNodeAmount;
+
     public LevelState LevelState;
     public int StackPoint;
 
-    [SerializeField] private Player player; 
+    [SerializeField] private PlayerManager player; 
 
     [SerializeField] private Transform mapHolder;
-    [SerializeField] private GroundNode groundNodePrefab;
-    [SerializeField] private UngroundNode ungroundNodePrefab;
-    [SerializeField] private GameObject borderNodePrefab;
-    [SerializeField] private GameObject pushNodePrefab;
-    [SerializeField] private GameObject goalNodePrefab;
 
-    [SerializeField] private int currentLevel = 1;
+    [SerializeField] private List<GameObject> nodePrefabs = new();
+
+    [SerializeField] private int currentLevel = 0;
 
     [SerializeField] private List<LevelRecord> levelRecords = new();
 
     private bool readyToStartNextLevel = false;
+    private bool isMasking = false;
 
     private void Awake()
     {
@@ -52,24 +53,33 @@ public class LevelManager : MonoBehaviour
 
     private void Initialize()
     {
-        player.Initialize();
+        player.OnInitialize();
 
         ClearLevel();
-        LoadLevel();
+        LoadLevel(0);
     }
 
     private void HandleLevelAction(LevelAction action)
     {
         if (action == LevelAction.Replay)
         {
-            Initialize();
+            currentLevel--;
+            
+            ReadyToStartLevel();
         }
         else if (action == LevelAction.Next)
         {
-            readyToStartNextLevel = true;
-
-            ViewManager.OnNextLevelPanelShowed?.Invoke(true);
+            ReadyToStartLevel();
         }
+    }
+
+    private void ReadyToStartLevel()
+    {
+        isMasking = true;
+
+        readyToStartNextLevel = true;
+
+        ViewManager.OnNextLevelPanelShowed?.Invoke(true);
     }
 
     private void StartNextLevel()
@@ -83,24 +93,13 @@ public class LevelManager : MonoBehaviour
         Initialize();
 
         readyToStartNextLevel = false;
+
+        OnLevelChanged?.Invoke(currentLevel);
     }
 
     private void HandleLevelStateChanged(LevelState state)
     {
         LevelState = state;
-
-        if (state == LevelState.Pause)
-        {
-            GameManager.Instance.HandlePauseGame();
-        }
-        else if (state == LevelState.Win)
-        {
-            GameManager.Instance.HandleWinGame();
-        }
-        else if (state == LevelState.Lose)
-        {
-            GameManager.Instance.HandleLoseGame();
-        }
     }
 
     private void ClearLevel()
@@ -108,35 +107,16 @@ public class LevelManager : MonoBehaviour
         mapHolder.DestroyAllChildren();
     }
 
-    private void LoadLevel()
+    private void LoadLevel(int level)
     {
-        var mapRecord = levelRecords[currentLevel - 1];
+        var mapRecord = levelRecords[level];
 
         foreach (var nodeData in mapRecord.Nodes)
         {
-            if (nodeData.Type == NodeType.GroundNode)
-            {
-                Instantiate(groundNodePrefab, nodeData.Position, Quaternion.Euler(nodeData.Rotation), mapHolder);
-            }
-            else if (nodeData.Type == NodeType.UngroundNode)
-            {
-                Instantiate(ungroundNodePrefab, nodeData.Position, Quaternion.Euler(nodeData.Rotation), mapHolder);
-            }
-            else if (nodeData.Type == NodeType.PushNode)
-            {
-                Instantiate(pushNodePrefab, nodeData.Position, Quaternion.Euler(nodeData.Rotation), mapHolder);
-            }
-            else if (nodeData.Type == NodeType.BorderNode)
-            {
-                Instantiate(borderNodePrefab, nodeData.Position, Quaternion.Euler(nodeData.Rotation), mapHolder);
-            }
-            else if (nodeData.Type == NodeType.GoalNode)
-            {
-                Instantiate(goalNodePrefab, nodeData.Position, Quaternion.Euler(nodeData.Rotation), mapHolder);
-            }
+            Instantiate(nodePrefabs[(int)nodeData.Type], nodeData.Position, Quaternion.Euler(nodeData.Rotation), mapHolder);
         }
 
-        if (currentLevel != 1)
+        if (isMasking)
         {
             ViewManager.OnNextLevelPanelShowed?.Invoke(false);
         }

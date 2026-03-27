@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Level 1 Record
   m_EditorClassIdentifier: Assembly-CSharp::LevelRecord
   Name: Level 1
+  StackNodeAmount: 52
   Nodes:
   - Type: 0
     Position: {x: -6.5, y: 0, z: -1.5}

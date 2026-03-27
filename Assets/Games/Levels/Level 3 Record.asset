@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Level 3 Record
   m_EditorClassIdentifier: Assembly-CSharp::LevelRecord
   Name: Level 3
+  StackNodeAmount: 70
   Nodes:
   - Type: 2
     Position: {x: -9.5, y: 0, z: -2.5}
@@ -85,7 +86,7 @@ MonoBehaviour:
     Rotation: {x: -0, y: 0, z: 0}
   - Type: 3
     Position: {x: -6.5, y: 0, z: 2.5}
-    Rotation: {x: -0, y: 270, z: 0}
+    Rotation: {x: 0, y: 270, z: 0}
   - Type: 1
     Position: {x: -4.5, y: 0, z: 6.5}
     Rotation: {x: -0, y: 0, z: 0}
@@ -160,7 +161,7 @@ MonoBehaviour:
     Rotation: {x: -0, y: 0, z: 0}
   - Type: 3
     Position: {x: -4.5, y: 0, z: 7.5}
-    Rotation: {x: -0, y: 180, z: -0}
+    Rotation: {x: 0, y: 180, z: 0}
   - Type: 3
     Position: {x: -9.5, y: 0, z: 10.5}
     Rotation: {x: -0, y: 90, z: -0}
@@ -169,10 +170,10 @@ MonoBehaviour:
     Rotation: {x: -0, y: 0, z: 0}
   - Type: 3
     Position: {x: -3.5, y: 0, z: 10.5}
-    Rotation: {x: -0, y: 270, z: 0}
+    Rotation: {x: 0, y: 270, z: 0}
   - Type: 3
     Position: {x: -3.5, y: 0, z: 13.5}
-    Rotation: {x: -0, y: 180, z: -0}
+    Rotation: {x: 0, y: 180, z: 0}
   - Type: 3
     Position: {x: -9.5, y: 0, z: 13.5}
     Rotation: {x: -0, y: 0, z: 0}
@@ -679,7 +680,7 @@ MonoBehaviour:
     Rotation: {x: -0, y: 90, z: -0}
   - Type: 3
     Position: {x: -5.5, y: 0, z: 22.5}
-    Rotation: {x: -0, y: 270, z: 0}
+    Rotation: {x: 0, y: 270, z: 0}
   - Type: 1
     Position: {x: -5.5, y: 0, z: 28.5}
     Rotation: {x: -0, y: 0, z: 0}
@@ -778,10 +779,10 @@ MonoBehaviour:
     Rotation: {x: -0, y: 0, z: 0}
   - Type: 3
     Position: {x: -0.5, y: 0, z: 30.5}
-    Rotation: {x: -0, y: 180, z: -0}
+    Rotation: {x: 0, y: 180, z: 0}
   - Type: 3
     Position: {x: 4.5, y: 0, z: 24.5}
-    Rotation: {x: -0, y: 270, z: 0}
+    Rotation: {x: 0, y: 270, z: 0}
   - Type: 3
     Position: {x: 2.5, y: 0, z: 24.5}
     Rotation: {x: -0, y: 0, z: 0}
@@ -1204,4 +1205,4 @@ MonoBehaviour:
     Rotation: {x: -0, y: 0, z: 0}
   - Type: 4
     Position: {x: 4.5, y: 0, z: 35.5}
-    Rotation: {x: -0, y: 270, z: 0}
+    Rotation: {x: 0, y: 270, z: 0}

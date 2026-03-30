@@ -1,9 +1,8 @@
 using TMPro;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LoadMenu : MonoBehaviour
+public class CanvasLoadMenu : CanvasUI
 {
     [SerializeField] private GameObject _menuPanel;
     [SerializeField] private Image _loadingFill;
@@ -47,7 +46,7 @@ public class LoadMenu : MonoBehaviour
         {
             _isLoadDone = true;
 
-            _menuPanel.SetActive(false);
+            this.gameObject.SetActive(false);
         }
 
         _loadingFill.fillAmount = percent;

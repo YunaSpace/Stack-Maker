@@ -48,15 +48,15 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        Initialize();
+        OnInitialize();
     }
 
-    private void Initialize()
+    private void OnInitialize()
     {
         player.OnInitialize();
 
         ClearLevel();
-        LoadLevel(0);
+        LoadLevel(currentLevel);
     }
 
     private void HandleLevelAction(LevelAction action)
@@ -90,7 +90,7 @@ public class LevelManager : MonoBehaviour
         }
 
         currentLevel++;
-        Initialize();
+        OnInitialize();
 
         readyToStartNextLevel = false;
 

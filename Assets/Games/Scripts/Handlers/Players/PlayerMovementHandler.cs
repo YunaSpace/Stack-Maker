@@ -162,5 +162,7 @@ public class PlayerMovementHandler : MonoBehaviour
         var y = 0.3f + (activeCount - 1) * 0.125f;
 
         model.localPosition = new Vector3(0, y, 0);
+
+        modelAnimator.Play("Jump");
     }
 }

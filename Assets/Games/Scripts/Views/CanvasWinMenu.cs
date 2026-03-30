@@ -1,20 +1,32 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LoseMenu : MonoBehaviour
+public class CanvasWinMenu : CanvasUI
 {
     [SerializeField] private GameObject menuPanel;
 
+    [SerializeField] private Button nextButton;
     [SerializeField] private Button replayButton;
+    [SerializeField] private TextMeshProUGUI pointText;
 
     private void Awake()
     {
+        nextButton.onClick.AddListener(OnNextLevel);
         replayButton.onClick.AddListener(OnReplayLevel);
     }
 
     public void ShowMenu(bool isOpened)
     {
         menuPanel.gameObject.SetActive(isOpened);
+
+        pointText.text = $"Stack: {GameManager.Instance.LevelManager.StackPoint}";
+    }
+
+    private void OnNextLevel()
+    {
+        LevelManager.OnLevelAction?.Invoke(LevelAction.Next);
+        menuPanel.gameObject.SetActive(false);
     }
 
     private void OnReplayLevel()

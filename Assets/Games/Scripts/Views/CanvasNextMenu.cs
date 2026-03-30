@@ -2,7 +2,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NextMenu : MonoBehaviour
+public class CanvasNextMenu : CanvasUI
 {
     [SerializeField] private GameObject _menuPanel;
     [SerializeField] private Image _maskImage;

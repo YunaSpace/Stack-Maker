@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameMenu : MonoBehaviour
+public class CanvasGameMenu : CanvasUI
 {
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private Button replayButton;
